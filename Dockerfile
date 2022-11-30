@@ -1,9 +1,10 @@
 # FROM webdevops/php-nginx:8.1-alpine
-FROM richarvey/nginx-php-fpm:2.0.0
+# FROM richarvey/nginx-php-fpm:2.0.0
+FROM tangramor/nginx-php8-fpm
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN apk --no-cache add nodejs npm
+# RUN apk --no-cache add nodejs npm
 
 WORKDIR /var/www/html
 
