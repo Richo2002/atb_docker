@@ -1,5 +1,5 @@
 # FROM webdevops/php-nginx:8.1-alpine
-FROM richarvey/nginx-php-fpm:latest
+FROM richarvey/nginx-php-fpm:2.0.0
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
