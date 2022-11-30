@@ -21,7 +21,7 @@ ENV LOG_CHANNEL stderr
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-CMD ["-g daemon off;/start.sh"]
+CMD ["/start.sh"]
 
 
 # RUN composer install --no-interaction --optimize-autoloader --no-dev

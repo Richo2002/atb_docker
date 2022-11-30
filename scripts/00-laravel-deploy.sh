@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+echo "ngnix"
+nginx -g 'daemon off;'
+
 echo "Install php dependance"
 composer install --no-dev --working-dir=/var/www/html
 
