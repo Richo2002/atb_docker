@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-echo "ngnix"
-nginx -g daemon off;
-
 echo "Install php dependance"
 composer install --no-dev --working-dir=/var/www/html
 
@@ -19,8 +16,12 @@ php artisan view:cache
 
 echo "Running migrations..."
 php artisan migrate --force
-
+    echo "ngnix"
+nginx -g daemon off;
 echo "run production"
 npm run build
+
+echo "put nginx on the background"
+nginx -g daemon off;
 
 
