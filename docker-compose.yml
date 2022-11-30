@@ -1,0 +1,19 @@
+version: '3.0'
+
+networks:
+  atbnetwork:
+
+services:
+  #php server 
+    php: 
+      build: .
+      container_name: ${APP_NAME}_php
+      ports:
+        - "8000:80"
+      working_dir: /var/www/html
+      volumes:
+        - ./:/var/www/html
+      environment:
+        APP_ENV: "production"
+      networks:
+        - atbnetwork
