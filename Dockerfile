@@ -2,6 +2,8 @@
 # FROM richarvey/nginx-php-fpm:2.0.0
 FROM tangramor/nginx-php8-fpm
 
+USER root
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # RUN apk --no-cache add nodejs npm
