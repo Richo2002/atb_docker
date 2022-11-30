@@ -16,8 +16,5 @@ php artisan view:cache
 
 echo "Running migrations..."
 php artisan migrate --force
-    
-echo "run production"
-npm run build
 
 
