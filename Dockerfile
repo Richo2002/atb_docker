@@ -24,6 +24,7 @@ ENV LOG_CHANNEL stderr
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+RUN composer install --no-dev --working-dir=/var/www/html
 RUn npm install
 RUN npm run build
 
