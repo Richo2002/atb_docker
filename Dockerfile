@@ -2,8 +2,6 @@
 # FROM richarvey/nginx-php-fpm:2.0.0
 FROM tangramor/nginx-php8-fpm
 
-RUN whoami
-
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # RUN apk --no-cache add nodejs npm
@@ -11,6 +9,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 WORKDIR /var/www/html
 
 COPY . .
+
+COPY conf/nginx/nginx-site.conf to /etc/nginx/conf.d/default.conf
 
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
