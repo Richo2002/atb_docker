@@ -10,7 +10,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
-COPY . .
+RUN whoami
+
+COPY --chown=nginx:nginx . .
 
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
