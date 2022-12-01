@@ -17,4 +17,10 @@ php artisan view:cache
 echo "Running migrations..."
 php artisan migrate --force
 
+echo "authorization "
+chown -R nginx:nginx /var/www/html/public
+    
+echo "run production"
+npm run build
+
 
