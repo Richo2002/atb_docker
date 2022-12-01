@@ -8,8 +8,8 @@ composer install --no-dev --working-dir=/var/www/html
 echo "install js dependencies..."
 npm install
 
-echo "build assets..."
-npm run build
+# echo "build assets..."
+# npm run build
 
 echo "Caching config..."
 php artisan config:cache
