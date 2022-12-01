@@ -23,5 +23,8 @@ php artisan view:cache
 echo "Running migrations..."
 php artisan migrate --force
 
+# change /var/www/html user/group
+chown -Rf nginx:nginx /var/www/html
+
 
 
