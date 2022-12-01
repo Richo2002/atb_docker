@@ -24,6 +24,9 @@ ENV LOG_CHANNEL stderr
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+RUn npm install
+RUN npm run build
+
 CMD ["/start.sh"]
 
 
