@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "permission in public folder"
-chmod -R 777 /var/www/html/public
+chmod -R 777 /var/www/html
 
 echo "install php dependencies ..."
 composer install --no-dev --working-dir=/var/www/html
