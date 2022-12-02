@@ -5,7 +5,7 @@ COPY . /var/www/html
 
 # If there is a conf folder under /var/www/html, the start.sh will
 # copy conf/nginx.conf to /etc/nginx/nginx.conf
-copy conf/nginx/nginx-site.conf to /etc/nginx/conf.d/default.conf
+# copy conf/nginx/nginx-site.conf to /etc/nginx/conf.d/default.conf
 # copy conf/nginx-site-ssl.conf to /etc/nginx/conf.d/default-ssl.conf
 
 # China alpine mirror: mirrors.ustc.edu.cn
