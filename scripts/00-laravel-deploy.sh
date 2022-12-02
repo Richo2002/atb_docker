@@ -4,7 +4,7 @@ echo "install php dependencies ..."
 composer install --no-interaction --optimize-autoloader --no-dev
 
 echo "change /var/www/html user/group"
-chown -Rf nginx:nginx /var/www/html
+chown -Rf 777 /var/www/html
 
 echo "install js dependencies..."
 npm install
