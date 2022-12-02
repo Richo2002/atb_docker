@@ -2,13 +2,13 @@
 # FROM richarvey/nginx-php-fpm:2.0.0
 FROM tangramor/nginx-php8-fpm
 
-User root
-
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/html
 
 COPY . .
+
+RUN chown -R nginx:nginx /var/www/html
 
 copy conf/nginx/nginx-site.conf /etc/nginx/conf.d/default.conf
 
@@ -26,8 +26,6 @@ ENV LOG_CHANNEL stderr
 # ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev --working-dir="/var/www/html"
-
-RUN chown -R 777 /var/www/html
 
 RUN npm install
 
