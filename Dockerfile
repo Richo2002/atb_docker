@@ -22,8 +22,6 @@ ENV LOG_CHANNEL stderr
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN chown -Rf root:root /var/www/html
-
 CMD ["/start.sh"]
 
 
