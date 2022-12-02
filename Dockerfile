@@ -20,7 +20,9 @@ ENV APP_ENV production
 ENV APP_DEBUG true
 ENV LOG_CHANNEL stderr
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
+# ENV COMPOSER_ALLOW_SUPERUSER 1
+
+RUN chown -Rf nginx:nginx /var/www/html
 
 CMD ["/start.sh"]
 
