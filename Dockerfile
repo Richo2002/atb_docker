@@ -25,18 +25,3 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN chown -Rf nginx:nginx /var/www/html
 
 CMD ["/start.sh"]
-
-
-# RUN composer install --no-interaction --optimize-autoloader --no-dev
-
-# RUN npm install
-
-# RUN php artisan config:cache
-
-# RUN php artisan route:cache
-
-# RUN php artisan view:cache
-
-# RUN php artisan migrate --force
-
-# RUN chown -R application:application .

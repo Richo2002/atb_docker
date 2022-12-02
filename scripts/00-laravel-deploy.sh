@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-# echo "permission in public folder"
-# chmod -R 777 /var/www/html
 
 echo "install php dependencies ..."
-composer install --no-dev --working-dir=/var/www/html
+composer install --no-interaction --optimize-autoloader --no-dev
 
 echo "install js dependencies..."
 npm install
@@ -25,8 +23,6 @@ php artisan view:cache
 
 echo "Running migrations..."
 php artisan migrate --force
-
-# change /var/www/html user/group
 
 
 
