@@ -4,13 +4,13 @@ FROM tangramor/nginx-php8-fpm
 
 User root
 
-copy conf/nginx/nginx-site.conf to /etc/nginx/conf.d/default.conf
-
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/html
 
 COPY . .
+
+copy conf/nginx/nginx-site.conf /etc/nginx/conf.d/default.conf
 
 
 ENV SKIP_COMPOSER 1
