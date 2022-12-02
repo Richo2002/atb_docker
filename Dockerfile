@@ -1,40 +1,41 @@
-# FROM webdevops/php-nginx:8.1-alpine
-# FROM richarvey/nginx-php-fpm:2.0.0
 FROM tangramor/nginx-php8-fpm
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# China alpine mirror: mirrors.ustc.edu.cn
+ARG APKMIRROR=""
 
-# RUN apk --no-cache add nodejs npm
+# China php composer mirror: https://mirrors.cloud.tencent.com/composer/
+ENV COMPOSERMIRROR=""
 
-WORKDIR /var/www/html
+# China npm mirror: https://registry.npmmirror.com
+ENV NPMMIRROR=""
 
-COPY . .
-
-ENV SKIP_COMPOSER 1
+# start.sh will replace default web root from /var/www/html to $WEBROOT
 ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
 
-ENV APP_ENV production
-ENV APP_DEBUG true
-ENV LOG_CHANNEL stderr
+# start.sh will use redis as session store with docker container name $PHP_REDIS_SESSION_HOST
+ENV PHP_REDIS_SESSION_HOST redis
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
+# start.sh will create laravel storage folder structure if $CREATE_LARAVEL_STORAGE = 1
+ENV CREATE_LARAVEL_STORAGE "1"
 
-CMD ["/start.sh"]
+# download required node/php packages, 
+# some node modules need gcc/g++ to build
+RUN if [[ "$APKMIRROR" != "" ]]; then sed -i "s/dl-cdn.alpinelinux.org/${APKMIRROR}/g" /etc/apk/repositories ; fi\
+    && apk add --no-cache --virtual .build-deps gcc g++ libc-dev make \
+    # set preferred npm mirror
+    && cd /usr/local \
+    && if [[ "$NPMMIRROR" != "" ]]; then npm config set registry ${NPMMIRROR}; fi \
+    && npm config set registry $NPMMIRROR \
+    && cd /var/www/html \
+    # install node modules
+    && npm install \
+    # install php composer packages
+    && if [[ "$COMPOSERMIRROR" != "" ]]; then composer config -g repos.packagist composer ${COMPOSERMIRROR}; fi \
+    && composer install \
+    # clean
+    && apk del .build-deps \
+    # build js/css
+    && npm run build \
 
-
-# RUN composer install --no-interaction --optimize-autoloader --no-dev
-
-# RUN npm install
-
-# RUN php artisan config:cache
-
-# RUN php artisan route:cache
-
-# RUN php artisan view:cache
-
-# RUN php artisan migrate --force
-
-# RUN chown -R application:application .
+    # change /var/www/html user/group
+    && chown -Rf nginx:nginx /var/www/html
