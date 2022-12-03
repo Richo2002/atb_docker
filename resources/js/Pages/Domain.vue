@@ -15,25 +15,25 @@
             <div class="row row-cols-md-2 row-cols-1 gy-4">
                 <div class="col">
                     <div class="img-background">
-                        <img src="/storage/domains/d1.jpg" alt="" class="img-fluid">
+                        <img src="../assets/d1.jpg" alt="" class="img-fluid">
                         <h5>Biodiversité</h5>
                     </div>
                 </div>
                 <div class="col">
                     <div class="img-background">
-                        <img src="/storage/domains/d2.jpg" alt="" class="img-fluid">
+                        <img src="../assets/d4.jpg" alt="" class="img-fluid">
                         <h5>Recherche scientifique</h5>
                     </div>
                 </div>
                 <div class="col">
                     <div class="img-background">
-                        <img src="/storage/domains/d3.jpg" alt="" class="img-fluid">
+                        <img src="../assets/d4.jpg" alt="" class="img-fluid">
                         <h5>Ecotourisme</h5>
                     </div>
                 </div>
                 <div class="col">
                     <div class="img-background">
-                        <img src="storage/domains/d4.jpg" alt="" class="img-fluid">
+                        <img src="../assets/d2.jpg" alt="" class="img-fluid">
                         <h5>Education environnementale</h5>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
     <Thumb :id="id" />
     <main>
         <span id="path-from-to"><Link href="/" class="text-light text-decoration-none">Accueil</Link>&nbsp;<b class="text-light">></b>&nbsp;Galerie Média</span>
-        <div class="container-fluid gallery-section mt-3" v-if="albums.data.length > 0">
+        <div class="container-fluid gallery-section mt-3" v-if="(albums.data.length > 0 || $page.props.auth.user)">
             <div class="container-title">
                 <p class="h3"><span>&nbsp;</span>Notre Galerie Média</p>
             </div>

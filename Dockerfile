@@ -23,6 +23,8 @@ ENV APP_ENV production
 ENV APP_DEBUG true
 ENV LOG_CHANNEL stderr
 
+ENV CREATE_LARAVEL_STORAGE "1"
+
 # ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev --working-dir="/var/www/html"

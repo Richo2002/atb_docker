@@ -30,7 +30,6 @@ class MediaApiController extends Controller
         
         $album->medias()->save($media);
 
-
         return response("");
     }
 }

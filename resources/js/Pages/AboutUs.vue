@@ -10,14 +10,14 @@
                 <p class="h3"><span>&nbsp;</span>A propos</p>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-sm-8 col-12">
                     <h5>Qui sommes-nous ?</h5>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptates, at sit minima error saepe omnis. Magnam nisi, quas eius et amet neque possimus repellendus deleniti. Itaque nemo earum asperiores!
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptates, at sit minima error saepe omnis. Magnam nisi, quas eius et amet neque possimus repellendus deleniti. Itaque nemo earum asperiores!
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptates, at sit minima error saepe omnis. Magnam nisi, quas eius et amet neque possimus repellendus deleniti. Itaque nemo earum asperiores!
                     </p>
                 </div>
-                <div class="col-4 pt-4">
+                <div class="col-sm-4 col-6 m-auto">
                     <img src="../assets/atb.png" alt="" class="img-fluid">
                 </div>
             </div>

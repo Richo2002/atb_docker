@@ -17,9 +17,10 @@ class AlbumController extends Controller
     public function index()
     {
         $albums = DB::table('albums')
+                    ->select('albums.id')
+                    ->groupBy('albums.id')
                     ->join('media', 'albums.id', '=', 'media.album_id')
                     ->select('albums.id as id', 'albums.title as title', 'media.image as lastImage', 'media.id as media_id')
-                    ->groupBy('media.album_id')
                     ->paginate(8);
 
         return inertia('Gallery', [
@@ -46,7 +47,7 @@ class AlbumController extends Controller
                         }
                     },
                 ],
-                'media.*' => ['required','mimes:jpg,jpeg,webp,bmp,mp4', 'max:4096'],
+                'media.*' => ['required','mimes:jpg,png,jpeg,webp,bmp,mp4', 'max:4096'],
         ]);
 
         $album = Album::create([

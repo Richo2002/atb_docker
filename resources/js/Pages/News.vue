@@ -5,7 +5,7 @@
     <Header />
     <main>
         <span id="path-from-to"><Link href="/" class="text-light text-decoration-none">Accueil</Link>&nbsp;<b class="text-light">></b>&nbsp;Actualités</span>
-        <div class="container-fluid news-section mt-3" v-if="articles.data.length > 0">
+        <div class="container-fluid news-section mt-3" v-if="(articles.data.length > 0)">
             <div class="container-title">
                 <p class="h3"><span>&nbsp;</span>Liste des actualités</p>
             </div>

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-echo "Symbolique link"
+echo "Clear cache..."
+php artisan optimize:clear
+
+echo "link storage folder"
 php artisan storage:link
 
 echo "Caching config..."
@@ -14,6 +17,9 @@ php artisan view:cache
 
 echo "Running migrations..."
 php artisan migrate --force
+
+echo "Running User seeder..."
+php artisan make:seeder UserSeeder
 
 
 
