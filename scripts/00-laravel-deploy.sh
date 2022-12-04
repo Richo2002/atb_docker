@@ -19,7 +19,7 @@ echo "Running migrations..."
 php artisan migrate --force
 
 echo "Running User seeder..."
-php artisan db:seed
+php artisan db:seed --no-interaction
 
 
 
