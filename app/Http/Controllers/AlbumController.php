@@ -16,10 +16,17 @@ class AlbumController extends Controller
 {
     public function index()
     {
-        $albums = DB::table('albums')
-                    ->select('albums.id')
-                    ->groupBy('albums.id')
-                    ->join('media', 'albums.id', '=', 'media.album_id')
+
+        $lastMediaCollection = DB::table('media')
+                                    ->selectRaw('max(id) as id')
+                                    ->groupBy('media.album_id')
+                                    ->get();
+
+        $lastMediaArray = $lastMediaCollection->pluck('id')->all();
+
+        $albums = DB::table('media')
+                    ->whereIn('media.id', $lastMediaArray)
+                    ->join('albums', 'albums.id', '=', 'media.album_id')
                     ->select('albums.id as id', 'albums.title as title', 'media.image as lastImage', 'media.id as media_id')
                     ->paginate(8);
 
